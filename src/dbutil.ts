@@ -35,7 +35,7 @@ export async function pollRecipients(
 ): Promise<RecipientMetrics[]> {
   const db = mongoClient.db('admin') as DbWithAggregate<RecipientMetrics>;
   const cursor = db.aggregate([
-    {$currentOp: {localOps: false}},
+    {$currentOp: {allUsers: true, localOps: false}},
     {
       $match: {
         type: 'op',
