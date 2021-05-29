@@ -1,5 +1,11 @@
 import faker from 'faker/locale/en_US';
-import {Collection, MongoClient, ObjectId, OptionalId} from 'mongodb';
+import {
+  Collection,
+  Decimal128,
+  MongoClient,
+  ObjectId,
+  OptionalId,
+} from 'mongodb';
 import orderId from 'order-id';
 import {MersenneTwister19937, Random} from 'random-js';
 
@@ -60,7 +66,7 @@ function makeOrder() {
     order: Array.from({length: random.integer(1, 5)}, () => ({
       product: faker.commerce.productName(),
       qty: random.integer(1, 3),
-      price: makePrice(),
+      price: Decimal128.fromString(makePrice()),
     })),
     padding: largeStr,
   };
