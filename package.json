@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@types/bytes": "^3.1.0",
+    "@types/faker": "^5.5.5",
     "@types/mongodb": "^3.6.12",
     "@types/node": "^14.11.2",
     "dotenv-safe": "^8.2.0",
@@ -37,6 +38,7 @@
   },
   "dependencies": {
     "bytes": "^3.1.0",
+    "faker": "^5.5.3",
     "log-update": "^4.0.0",
     "mongodb": "^3.6.6",
     "random-js": "^2.1.0"
