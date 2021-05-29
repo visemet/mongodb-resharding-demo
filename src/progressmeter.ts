@@ -1,4 +1,4 @@
-import * as formatBytes from 'bytes';
+import formatBytes from 'bytes';
 
 import {RecipientMetrics} from './dbutil';
 

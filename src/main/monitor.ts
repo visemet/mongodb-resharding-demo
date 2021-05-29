@@ -1,6 +1,6 @@
 import {promisify} from 'util';
 
-import * as logUpdate from 'log-update';
+import logUpdate from 'log-update';
 import {MongoClient} from 'mongodb';
 
 import {connect, pollRecipients} from '../dbutil';
@@ -74,6 +74,6 @@ async function run(mongoClient: MongoClient): Promise<void> {
   ]);
 }
 
-connect(process.env.MONGODB_URI as string)
+connect(process.env.MONGODB_URI!)
   .then(mongoClient => run(mongoClient).finally(() => mongoClient.close()))
   .catch(console.error);

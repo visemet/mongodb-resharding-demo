@@ -1,7 +1,7 @@
 import {MongoClient, ObjectId} from 'mongodb';
 
 import {connect} from '../dbutil';
-import {collName, newShardKeyFieldName, oldShardKeyFieldName} from './populate';
+import {collName, customerIdFieldName, orderIdFieldName} from './populate';
 
 const numUpdates = 100_000;
 const sampleSize = 100;
@@ -9,8 +9,8 @@ const concurrency = 1;
 
 const projection = {
   _id: 1,
-  [oldShardKeyFieldName]: 1,
-  [newShardKeyFieldName]: 1,
+  [orderIdFieldName]: 1,
+  [customerIdFieldName]: 1,
 };
 
 async function run(mongoClient: MongoClient): Promise<void> {
@@ -45,6 +45,6 @@ async function run(mongoClient: MongoClient): Promise<void> {
   );
 }
 
-connect(process.env.MONGODB_URI as string)
+connect(process.env.MONGODB_URI!)
   .then(mongoClient => run(mongoClient).finally(() => mongoClient.close()))
   .catch(console.error);
