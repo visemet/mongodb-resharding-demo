@@ -81,8 +81,8 @@ ${formatProgressBar(
   this.#totalBytesCopied,
   this.#totalBytesToCopy
 )} ${formatBytes(this.#totalBytesCopied, {
-      decimalPlaces: 0,
-    })} / ${formatBytes(this.#totalBytesToCopy, {decimalPlaces: 0})} cloned
+      decimalPlaces: 1,
+    })} / ${formatBytes(this.#totalBytesToCopy, {decimalPlaces: 1})} cloned
 ${formatProgressBar(
   this.#totalOplogEntriesApplied,
   this.#totalOplogEntriesFetched
